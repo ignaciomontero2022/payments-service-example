@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: Checkout del codigo
       uses: actions/checkout@v3
-    - name: Setup del JDK
+    - name: Setup del JDK.
       uses: actions/setup-java@v1
       with:
         java-version: 8
