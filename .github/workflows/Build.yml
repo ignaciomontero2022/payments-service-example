@@ -11,10 +11,11 @@ jobs:
     steps:
     - name: Checkout del codigo
       uses: actions/checkout@v3
-    - name: Build con Maven
+    - name: Setup del JDK
       uses: actions/setup-java@v1
       with:
         java-version: 8
+    - name: Build con Mave.
       run: mvn -B package --file pom.xml
 
     - name: Login a Docker Hub  
