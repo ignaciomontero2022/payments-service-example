@@ -60,5 +60,10 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: .
-        push: true
+        push: false
         tags: ignaciomontero2022/orders-service-example:${{ github.sha }}
+    - name: Docker para pruebas
+      uses: addnab/docker-run-action@v3
+      with:
+        image: ignaciomontero2022/orders-service-example:${{ github.sha }}
+        run: echo "hello world"
