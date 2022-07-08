@@ -2,18 +2,17 @@ name: Build de imagenes v2.
 
 on:
   push:
-    paths:
-      - 'Microservicios/cambio.txt'
+    branches:
+      - 'master'
       
 jobs:
-  build-container:
-    name: build and push image
+  build_prueba_de_container:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout del codigo
       uses: actions/checkout@v3
     - name: Build con Maven
-       uses: actions/setup-java@v1
+      uses: actions/setup-java@v1
       with:
         java-version: 8
       run: mvn -B package --file pom.xml
