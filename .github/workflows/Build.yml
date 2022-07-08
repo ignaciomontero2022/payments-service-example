@@ -7,8 +7,8 @@ on:
   
 jobs:
   
-  buildeo:
-    name: Build
+  Sonar:
+    name: Escaneo con Sonarcloud
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -36,7 +36,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ignaciomontero2022_payments-service-example
 
-  build_prueba_de_container:
+  build_imagen a_container:
+    name: Buildeo de imagen y publicación a docker.
     runs-on: ubuntu-latest
     steps:
     - name: Checkout del codigo
