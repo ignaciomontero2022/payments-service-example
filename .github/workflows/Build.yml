@@ -36,7 +36,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ignaciomontero2022_payments-service-example
 
-  build_imagen a_container:
+  build_imagen_a_container:
     name: Buildeo de imagen y publicación a docker.
     runs-on: ubuntu-latest
     steps:
