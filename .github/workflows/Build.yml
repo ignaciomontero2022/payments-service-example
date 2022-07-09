@@ -41,8 +41,8 @@ jobs:
     runs-on: ubuntu-lastet
     steps:
         run: | 
-        echo "::set-output name=ESTADO_SONAR::$(curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=ignaciomontero2022_payments-service-example | awk -F '"' '/1/ {print $6}')
-        echo "${{ steps.outputs.STATUS_SONAR }}"
+          echo "::set-output name=ESTADO_SONAR::$(curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=ignaciomontero2022_payments-service-example | awk -F '"' '/1/ {print $6}')
+          echo "${{ steps.outputs.STATUS_SONAR }}"
  
   build_imagen_a_container:
     name: Buildeo de imagen, test y publicación a Docker Hub.
