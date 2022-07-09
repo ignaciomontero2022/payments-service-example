@@ -44,6 +44,7 @@ jobs:
       run: |
         echo "STATUS_SONAR=$(curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=${{ secrets.SONAR_PROJETKEY }} | awk -F '"' '/1/ {print $6}') >> $GITHUB_ENV
         echo "${{ env.STATUS_SONAR }}"
+ 
   build_imagen_a_container:
     name: Buildeo de imagen, test y publicación a Docker Hub.
     #needs: Sonar
