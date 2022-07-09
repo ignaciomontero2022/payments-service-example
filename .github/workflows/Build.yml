@@ -37,7 +37,7 @@ jobs:
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ignaciomontero2022_payments-service-example
 
   build_imagen_a_container:
-    name: Buildeo de imagen y publicación a docker.
+    name: Buildeo de imagen, test y publicación a Docker Hub.
     needs: Sonar
     runs-on: ubuntu-latest
     steps:
