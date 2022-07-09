@@ -40,7 +40,7 @@ jobs:
     name: Verificación de Quality Gate definido en Soanr
     runs-on: ubuntu-latest
     steps:
-      -name: Estado de Quality Gate
+      - name: Estado de Quality Gate
       run: | 
         echo "::set-output name=ESTADO_SONAR::$(curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=ignaciomontero2022_payments-service-example | awk -F '"' '/1/ {print $6}')
         echo "${{ steps.outputs.STATUS_SONAR }}"
