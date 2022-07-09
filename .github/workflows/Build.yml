@@ -66,6 +66,7 @@ jobs:
     - name: Levanto docker
       run: |
         docker run -d --name orders-service-example --env "APP_ARGS=http://127.0.0.1:8080 http://127.0.0.1:8080 http://127.0.0.1:8080" -p 8080:8080 ignaciomontero2022/orders-service-example:${{ github.sha }}
+        docker ps -a
         docker network create redlocal
         docker network connect redlocal orders-service-example
         docker network inspect redlocal
