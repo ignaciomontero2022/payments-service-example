@@ -64,7 +64,6 @@ jobs:
         tags: ignaciomontero2022/orders-service-example:${{ github.sha }}
     
     - name: Docker para pruebas
-      steps:
       - uses: actions/checkout@v3
       - name: Levanto docker
         run: docker run -d --name orders-service-example --env "APP_ARGS=http://127.0.0.1:8080 http://127.0.0.1:8080 http://127.0.0.1:8080" -p 8080:8080 ignaciomontero2022/orders-service-example:${{ github.sha }}
