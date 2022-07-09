@@ -36,13 +36,14 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=${{ secrets.SONAR_PROJETKEY }}
   
-  # quality_gate:
-  #   name: Verificación de Quality Gate definido en Soanr
-  #   runs-on: ubuntu-lastet
-  #   steps:
-  #       run: | 
-  #         echo "::set-output name=ESTADO_SONAR::$(curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=ignaciomontero2022_payments-service-example | awk -F '"' '/1/ {print $6}')
-  #         echo "${{ steps.outputs.STATUS_SONAR }}"
+  quality_gate:
+    name: Verificación de Quality Gate definido en Soanr
+    runs-on: ubuntu-latest
+    steps:
+      -name: Estado de Quality Gate
+      run: | 
+        echo "::set-output name=ESTADO_SONAR::$(curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=ignaciomontero2022_payments-service-example | awk -F '"' '/1/ {print $6}')
+        echo "${{ steps.outputs.STATUS_SONAR }}"
  
   build_imagen_a_container:
     name: Buildeo de imagen, test y publicación a Docker Hub.
