@@ -42,7 +42,7 @@ jobs:
           scanMetadataReportFile: target/sonar/report-task.txt
           env: 
           SONAR_TOKEN: "543c2e5ffe31f12fc4da45c0c5901462b7e4c401" #${{ secrets.SONARCLOUD_TOKEN }}
-  build_imagen_a_container:
+   build_imagen_a_container:
     name: Buildeo de imagen, test y publicación a Docker Hub.
     needs: Sonar
     runs-on: ubuntu-latest
