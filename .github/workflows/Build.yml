@@ -40,11 +40,7 @@ jobs:
         timeout-minutes: 5 
         with:
           scanMetadataReportFile: target/sonar/report-task.txt
-      # - name: Verificación de Quality Gate definido en Soan
-      #   run: | 
-      #       echo "::set-output name=ESTADO_SONAR::$(curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=ignaciomontero2022_payments-service-example | awk -F '"' '/1/ {print $6}')
-      #       echo "${{ steps.outputs.STATUS_SONAR }}"
-        env: 
+          env: 
           SONAR_TOKEN: "543c2e5ffe31f12fc4da45c0c5901462b7e4c401" #${{ secrets.SONARCLOUD_TOKEN }}
   build_imagen_a_container:
     name: Buildeo de imagen, test y publicación a Docker Hub.
