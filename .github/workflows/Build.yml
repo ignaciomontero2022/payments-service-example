@@ -40,7 +40,7 @@ jobs:
         timeout-minutes: 5 
         with:
           scanMetadataReportFile: target/sonar/report-task.txt
-      # - name: Verificación de Quality Gate definido en Soanr
+      # - name: Verificación de Quality Gate definido en Soan
       #   run: | 
       #       echo "::set-output name=ESTADO_SONAR::$(curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=ignaciomontero2022_payments-service-example | awk -F '"' '/1/ {print $6}')
       #       echo "${{ steps.outputs.STATUS_SONAR }}"
