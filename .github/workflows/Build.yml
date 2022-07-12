@@ -69,13 +69,13 @@ jobs:
         load: true
         tags: ignaciomontero2022/orders-service-example:${{ github.sha }}
 
-    # - name: Levanto docker2
-    #   run: |
-    #     docker run -d --name orders-service-example --env "APP_ARGS=http://127.0.0.1:8080 http://127.0.0.1:8080 http://127.0.0.1:8080" -p 8080:8080 ignaciomontero2022/orders-service-example:${{ github.sha }}
-    #     docker ps
-    #     docker network create redlocal
-    #     docker network connect redlocal orders-service-example
-    #     docker network inspect redlocal
+     - name: Levanto docker2
+       run: |
+         docker run -d --name payments-service-example --env "APP_ARGS=http://127.0.0.1:8080" -p 8080:8080 ignaciomontero2022/payments-service-example:${{ github.sha }}
+         docker ps
+        # docker network create redlocal
+        # docker network connect redlocal orders-service-example
+        # docker network inspect redlocal
 
     #- name: Build de orders-service-example
     #  uses: docker/build-push-action@v3
