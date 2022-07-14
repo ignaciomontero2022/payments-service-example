@@ -8,9 +8,9 @@ on:
 jobs:
   
   Sonar:
-    name: Escaneo con Sonarcloud
-    runs-on: ubuntu-latest
-    steps:
+  name: Escaneo con Sonarcloud
+  runs-on: ubuntu-latest
+  steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0  
