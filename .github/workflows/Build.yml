@@ -42,7 +42,7 @@ jobs:
           scanMetadataReportFile: target/sonar/report-task.txt
           env: 
           SONAR_TOKEN: "543c2e5ffe31f12fc4da45c0c5901462b7e4c401" #${{ secrets.SONARCLOUD_TOKEN }}
-  build_imagen_a_container:
+   build_imagen_a_container:
     name: Buildeo de imagen, test y publicación a Docker Hub.
     needs: Sonar
     runs-on: ubuntu-latest
@@ -69,13 +69,13 @@ jobs:
         load: true
         tags: ignaciomontero2022/orders-service-example:${{ github.sha }}
 
-    # - name: Levanto docker2
-    #   run: |
-    #     docker run -d --name orders-service-example --env "APP_ARGS=http://127.0.0.1:8080 http://127.0.0.1:8080 http://127.0.0.1:8080" -p 8080:8080 ignaciomontero2022/orders-service-example:${{ github.sha }}
-    #     docker ps
-    #     docker network create redlocal
-    #     docker network connect redlocal orders-service-example
-    #     docker network inspect redlocal
+     - name: Levanto docker2
+       run: |
+         docker run -d --name payments-service-example --env "APP_ARGS=http://127.0.0.1:8080" -p 8080:8080 ignaciomontero2022/payments-service-example:${{ github.sha }}
+         docker ps
+        # docker network create redlocal
+        # docker network connect redlocal orders-service-example
+        # docker network inspect redlocal
 
     #- name: Build de orders-service-example
     #  uses: docker/build-push-action@v3
