@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: payments-service
+spec:
+  clusterIP: 172.20.1.40
+  selector:
+    app: payments-app
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payments-app
+spec:
+  selector:
+    matchLabels:
+      app: payments-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: payments-app
+    spec:
+      containers:
+      - name: payments-app
+        image: ignaciomontero2022/payments-service-example:latest
+        resources:
+          requests:
+            memory: "500Mi"
+            cpu: "250m"
+          limits:
+            memory: "1000Mi"
+            cpu: "500m"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
